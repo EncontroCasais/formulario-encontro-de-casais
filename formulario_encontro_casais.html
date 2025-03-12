@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Inscrição - Encontro de Casais para Cristo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+        }
+        input[type="text"], input[type="date"], input[type="email"], input[type="tel"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #128c7e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ficha de Inscrição - Encontro de Casais para Cristo</h1>
+        <form id="form" onsubmit="sendToWhatsApp(event)">
+            <!-- Casal Responsável -->
+            <div class="form-group">
+                <label for="casal_responsavel">Casal Responsável?</label>
+                <input type="text" id="casal_responsavel" required placeholder="Nome do Casal Responsável">
+            </div>
+
+            <div class="form-group">
+                <label for="nome_casal">Nome do Casal</label>
+                <input type="text" id="nome_casal" required placeholder="Nome do casal">
+            </div>
+            <div class="form-group">
+                <label for="identidade_ele">Ele: Identidade e Órgão</label>
+                <input type="text" id="identidade_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="identidade_ela">Ela: Identidade e Órgão</label>
+                <input type="text" id="identidade_ela" required>
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento_ele">Ele: Data de Nascimento</label>
+                <input type="date" id="data_nascimento_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento_ela">Ela: Data de Nascimento</label>
+                <input type="date" id="data_nascimento_ela" required>
+            </div>
+            <div class="form-group">
+                <label for="data_casamento">Data de Casamento</label>
+                <input type="date" id="data_casamento" required>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço (Rua, Número, Bairro, Complemento, Cidade, CEP)</label>
+                <input type="text" id="endereco" required>
+            </div>
+
+            <!-- Contato -->
+            <div class="form-group">
+                <label for="telefone_ele">Telefone Ele</label>
+                <input type="tel" id="telefone_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone_ela">Telefone Ela</label>
+                <input type="tel" id="telefone_ela" required>
+            </div>
+            <div class="form-group">
+                <label for="email_ele">E-mail Ele</label>
+                <input type="email" id="email_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="email_ela">E-mail Ela</label>
+                <input type="email" id="email_ela" required>
+            </div>
+
+            <!-- Religião -->
+            <div class="form-group">
+                <label for="religiao_ele">Religião Ele</label>
+                <input type="text" id="religiao_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="religiao_ela">Religião Ela</label>
+                <input type="text" id="religiao_ela" required>
+            </div>
+
+            <!-- Profissão -->
+            <div class="form-group">
+                <label for="profissao_ele">Profissão Ele</label>
+                <input type="text" id="profissao_ele" required>
+            </div>
+            <div class="form-group">
+                <label for="profissao_ela">Profissão Ela</label>
+                <input type="text" id="profissao_ela" required>
+            </div>
+
+            <!-- Nome dos filhos -->
+            <div class="form-group">
+                <label for="nome_filho">Nome dos Filhos</label>
+                <input type="text" id="nome_filho">
+            </div>
+
+            <!-- Informações de Saúde -->
+            <div class="form-group">
+                <label for="informacoes_saude_ele">Informações de Saúde (Ele)</label>
+                <textarea id="informacoes_saude_ele" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="informacoes_saude_ela">Informações de Saúde (Ela)</label>
+                <textarea id="informacoes_saude_ela" rows="4"></textarea>
+            </div>
+
+            <!-- Preferências de comida -->
+            <div class="form-group">
+                <label for="comida_preferida_ele">Qual a sua comida preferida? (Ele)</label>
+                <input type="text" id="comida_preferida_ele">
+            </div>
+            <div class="form-group">
+                <label for="comida_preferida_ela">Qual a sua comida preferida? (Ela)</label>
+                <input type="text" id="comida_preferida_ela">
+            </div>
+            <div class="form-group">
+                <label for="comidas_nao_comem_ele">Quais as comidas que você não come? (Ele)</label>
+                <input type="text" id="comidas_nao_comem_ele">
+            </div>
+            <div class="form-group">
+                <label for="comidas_nao_comem_ela">Quais as comidas que você não come? (Ela)</label>
+                <input type="text" id="comidas_nao_comem_ela">
+            </div>
+
+            <!-- Texto explicativo sobre pagamento -->
+            <div class="form-group">
+                <label for="pagamento_info">Informações sobre pagamento</label>
+                <textarea id="pagamento_info" rows="4" readonly>O pagamento total do encontro deverá ser quitado até o dia 25 de agosto de 2025.
+Ocorrendo desistência, não haverá devolução do valor pago anteriormente.
+O casal responsável deverá prestar conta do pagamento do casal.
+Qualquer informação extra deverá ser fornecida pelo casal responsável.
+Favor entregar junto com as fichas devidamente preenchidas, cópia da certidão de casamento e as fotos.</textarea>
+            </div>
+
+            <!-- Consentimento -->
+            <div class="form-group">
+                <label for="aceite_ele">Você concorda em participar? (Ele)</label>
+                <input type="checkbox" id="aceite_ele" required> Sim
+            </div>
+            <div class="form-group">
+                <label for="aceite_ela">Você concorda em participar? (Ela)</label>
+                <input type="checkbox" id="aceite_ela" required> Sim
+            </div>
+
+            <!-- Fotos Solicitadas -->
+            <div class="form-group">
+                <label for="fotos_info">Fotos Solicitadas</label>
+                <textarea id="fotos_info" rows="4" readonly>Fotos solicitadas:
+- Solteiros (antes de se conhecerem)
+- Namorados (primeiros momentos)
+- Noivado (momentos do pedido, aliança)
+- Passeios que fizeram juntos
+- Aniversários
+- Casamento
+- Gravidez
+- Os primeiros dias de nascido (da criança)
+- Família
+- Casal com as crianças
+
+Observações:
+- De 2 a 3 fotos de cada evento.
+- Se o casal possuir filhos que não sejam comuns ao casal, por favor, sinalize nas fotos.</textarea>
+            </div>
+
+            <!-- Enviar botão -->
+            <button type="submit">Enviar para WhatsApp</button>
+        </form>
+    </div>
+
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();  // Evita o envio do formulário
+
+            // Coletando os dados do formulário
+            const casalResponsavel = document.getElementById("casal_responsavel").value;
+            const nomeCasal = document.getElementById("nome_casal").value;
+            const identidadeEle = document.getElementById("identidade_ele").value;
+            const identidadeEla = document.getElementById("identidade_ela").value;
+            const dataNascimentoEle = document.getElementById("data_nascimento_ele").value;
+            const dataNascimentoEla = document.getElementById("data_nascimento_ela").value;
+            const dataCasamento = document.getElementById("data_casamento").value;
+            const endereco = document.getElementById("endereco").value;
+            const telefoneEle = document.getElementById("telefone_ele").value;
+            const telefoneEla = document.getElementById("telefone_ela").value;
+            const emailEle = document.getElementById("email_ele").value;
+            const emailEla = document.getElementById("email_ela").value;
+            const religiaoEle = document.getElementById("religiao_ele").value;
+            const
